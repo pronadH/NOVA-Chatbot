@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova — AI Chat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">✦</div>
+    <div class="header-text">
+      <h1>Nova AI</h1>
+      <p>Powered by OpenRouter</p>
+    </div>
+    <div class="status-dot" title="Online"></div>
+  </header>
+
+  <!-- MESSAGES -->
+  <div class="messages" id="messages">
+    <div class="welcome" id="welcome">
+      <div class="big-icon">✦</div>
+      <h2>Hello, I'm Nova</h2>
+      <p>Your intelligent assistant. Ask me anything — I'm here to help, explain, or just chat.</p>
+      <div class="chips">
+        <div class="chip" onclick="sendChip(this)">✍️ Write a poem</div>
+        <div class="chip" onclick="sendChip(this)">💡 Explain quantum computing</div>
+        <div class="chip" onclick="sendChip(this)">🧠 What is consciousness?</div>
+        <div class="chip" onclick="sendChip(this)">🌍 Fun world fact</div>
+        <div class="chip" onclick="sendChip(this)">🐛 Debug my code</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUT AREA -->
+  <div class="input-area">
+    <div class="toolbar">
+      <button class="tool-btn" onclick="clearChat()">🗑 Clear</button>
+      <select class="model-select" id="modelSelect">
+        <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (Free)</option>
+        <option value="meta-llama/llama-3-8b-instruct:free">Llama 3 8B (Free)</option>
+        <option value="google/gemma-3-27b-it:free">Gemma 3 27B (Free)</option>
+        <option value="deepseek/deepseek-r1:free">DeepSeek R1 (Free)</option>
+        <option value="microsoft/phi-3-mini-128k-instruct:free">Phi-3 Mini (Free)</option>
+      </select>
+    </div>
+    <div class="input-row">
+      <textarea
+        id="input"
+        placeholder="Message Nova…"
+        rows="1"
+        onkeydown="handleKey(event)"
+        oninput="autoResize(this)"
+      ></textarea>
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+      </button>
+    </div>
+    <p class="footer-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line</p>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
